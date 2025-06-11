@@ -5,7 +5,23 @@ api-version: "1.21"
 prefix: iqProtect
 authors: [iquldev, claude, chatgpt]
 description: A new level of protection of buildings from gryfering.
+
 commands:
   iqp:
     description: Main command for iqProtect
-    usage: /<command> [list|gui|whitelist add/remove <player>]
+    usage: /<command> [list|gui|cui|reload|remove|help]
+    aliases: [iqprotect]
+
+permissions:
+  iqp.use:
+    description: Allows using basic iqProtect commands
+    default: true
+  iqprotect.bypass:
+    description: Bypass protection, issue with caution!
+    default: op
+  iqprotect.reload:
+    description: Access to /iqp reload
+    default: op
+  iqprotect.admin:
+    description: Administrator capabilities
+    default: op
