@@ -1,7 +1,7 @@
 name: iqProtect
 version: "1.0"
 main: iquldev.iqprotect
-api-version: "1.21"
+api-version: "1.13"
 prefix: iqProtect
 authors: [iquldev, claude, chatgpt]
 description: A new level of protection of buildings from gryfering.

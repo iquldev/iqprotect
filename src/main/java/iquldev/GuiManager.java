@@ -10,7 +10,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -56,11 +55,12 @@ public class GuiManager {
         ItemMeta commandsMeta = commandsItem.getItemMeta();
         if (commandsMeta != null) {
             commandsMeta.displayName(MessageUtils.format(configManager.getMessage("gui.commands_item.name")));
-            commandsMeta.lore(Arrays.asList(
-                    MessageUtils.format(configManager.getMessage("gui.commands_item.list_command")),
-                    MessageUtils.format(configManager.getMessage("gui.commands_item.gui_command")),
-                    MessageUtils.format(configManager.getMessage("gui.commands_item.reload_command"))
-            ));
+            List<Component> commandsLore = new ArrayList<>();
+            commandsLore.add(MessageUtils.format(configManager.getMessage("gui.commands_item.list_command")));
+            commandsLore.add(MessageUtils.format(configManager.getMessage("gui.commands_item.gui_command")));
+            commandsLore.add(MessageUtils.format(configManager.getMessage("gui.commands_item.cui_command")));
+            commandsLore.add(MessageUtils.format(configManager.getMessage("gui.commands_item.reload_command")));
+            commandsMeta.lore(commandsLore);
             commandsItem.setItemMeta(commandsMeta);
         }
         gui.setItem(13, commandsItem);
@@ -72,10 +72,16 @@ public class GuiManager {
             List<Component> permissionsLore = new ArrayList<>();
             permissionsLore.add(MessageUtils.format(configManager.getMessage("gui.permissions_item.bypass_permission")));
             permissionsLore.add(MessageUtils.format(configManager.getMessage("gui.permissions_item.reload_permission")));
+            permissionsLore.add(MessageUtils.format(configManager.getMessage("gui.permissions_item.admin_permission")));
             if (player.hasPermission(configManager.getBypassPermission())) {
                 permissionsLore.add(MessageUtils.format(configManager.getMessage("gui.permissions_item.has_bypass")));
             } else {
                 permissionsLore.add(MessageUtils.format(configManager.getMessage("gui.permissions_item.no_bypass")));
+            }
+            if (player.hasPermission(configManager.getAdminPermission())) {
+                permissionsLore.add(MessageUtils.format(configManager.getMessage("gui.permissions_item.has_admin")));
+            } else {
+                permissionsLore.add(MessageUtils.format(configManager.getMessage("gui.permissions_item.no_admin")));
             }
             permissionsMeta.lore(permissionsLore);
             permissionsItem.setItemMeta(permissionsMeta);

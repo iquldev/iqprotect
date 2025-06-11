@@ -45,6 +45,7 @@ public class iqprotect extends JavaPlugin {
         
         getServer().getPluginManager().registerEvents(eventManager, this);
         getCommand("iqp").setExecutor(commandManager);
+        getCommand("iqp").setTabCompleter(new CommandTabCompleter(configManager));
         
         Map<String, String> placeholders = new HashMap<>();
         placeholders.put("plugin_name", getName());

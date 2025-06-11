@@ -105,14 +105,18 @@ messages:
       name: "<gradient:#0024FF:#5567FF>Plugin commands</gradient>"
       list_command: "<gray><gradient:#2887FC:#0026FF>/iqp list</gradient> - Zone list</gray>"
       gui_command: "<gray><gradient:#2887FC:#0026FF>/iqp gui</gradient> - Open GUI</gray>"
+      cui_command: "<gray><gradient:#2887FC:#0026FF>/iqp cui</gradient> - Show zone boundaries</gray>"
       reload_command: "<gray><gradient:#2887FC:#0026FF>/iqp reload</gradient> - Reload data</gray>"
 
     permissions_item:
       name: "<gradient:#2887FC:#0026FF>Permissions</gradient>"
       bypass_permission: "<gray><gradient:#2887FC:#0026FF>iqprotect.bypass</gradient> - bypass protection</gray>"
       reload_permission: "<gray><gradient:#2887FC:#0026FF>iqprotect.reload</gradient> - reload</gray>"
+      admin_permission: "<gray><gradient:#2887FC:#0026FF>iqprotect.admin</gradient> - admin capabilities</gray>"
       has_bypass: "<green>✓ You have bypass permissions</green>"
       no_bypass: "<red>✗ You don't have bypass permissions</red>"
+      has_admin: "<green>✓ You have admin permissions</green>"
+      no_admin: "<red>✗ You don't have admin permissions</red>"
 
   # Error messages
   errors:
