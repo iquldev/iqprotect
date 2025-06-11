@@ -8,8 +8,8 @@
 <div align="center">
   <img alt="Modrinth Downloads" src="https://img.shields.io/modrinth/dt/iqprotect?logo=modrinth&color=green">
   <img alt="Hangar Downloads" src="https://img.shields.io/hangar/dt/iqprotect?color=blue">
-  <img alt="CurseForge Downloads" src="https://img.shields.io/curseforge/dt/iqprotect?logo=curseforge&color=orange">
-  <img alt="Spiget Downloads" src="https://img.shields.io/spiget/downloads/iqprotect?color=red">
+  <img alt="CurseForge Downloads" src="https://img.shields.io/curseforge/dt/1284520?logo=curseforge&color=orange">
+  <img alt="Spiget Downloads" src="https://img.shields.io/spiget/downloads/125957?color=red">
 </div>
 </p>
 
