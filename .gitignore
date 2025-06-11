@@ -1,5 +1,6 @@
 # User-specific stuff
 .idea/
+.vscode/
 
 *.iml
 *.ipr
@@ -117,3 +118,138 @@ runs/
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
+
+# Minecraft specific
+*.yml.bak
+*.yaml.bak
+config.yml.bak
+plugin.yml.bak
+
+# Server files
+server.properties
+bukkit.yml
+spigot.yml
+paper.yml
+velocity.toml
+bungeecord.yml
+waterfall.yml
+
+# Logs
+logs/
+*.log.*
+crash-reports/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# IDE specific (additional)
+*.sublime-project
+*.sublime-workspace
+.project
+.classpath
+.settings/
+
+# OS specific (additional)
+.directory
+.fseventsd
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Java specific (additional)
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+replay_pid*
+
+# Gradle specific (additional)
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+gradle-app.setting
+.gradletasknamecache
+
+# Maven specific
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Node.js (if using any JS tools)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Documentation build
+docs/_build/
+site/
+
+# Test coverage
+coverage/
+.coverage
+*.lcov
+
+# Package files
+*.tgz
+*.tar
+*.gz
+*.bz2
+*.xz
+*.7z
+
+# Compiled resources
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+
+# Generated files
+generated/
+gen/
+
