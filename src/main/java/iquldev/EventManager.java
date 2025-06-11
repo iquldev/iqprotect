@@ -42,16 +42,6 @@ public class EventManager implements Listener {
             return;
         }
         
-        if (!player.hasPermission(configManager.getBypassPermission()) && !zoneManager.canCreateZoneAt(player.getUniqueId(), block.getLocation())) {
-            event.setCancelled(true);
-            player.sendMessage(configManager.getMessage("protection.too_close_to_other_zone"));
-            Map<String, String> placeholders = new HashMap<>();
-            placeholders.put("player_name", player.getName());
-            placeholders.put("location", locationToString(block.getLocation()));
-            Logger.warning(Logger.getLogMessage("protection.zone_too_close", placeholders));
-            return;
-        }
-        
         zoneManager.addBlock(player.getUniqueId(), block.getLocation());
     }
     

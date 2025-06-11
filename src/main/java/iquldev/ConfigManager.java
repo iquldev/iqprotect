@@ -57,10 +57,6 @@ public class ConfigManager {
         return config.getInt("settings.max_zone_distance", 10);
     }
     
-    public int getMinZoneDistance() {
-        return config.getInt("settings.min_zone_distance", 50);
-    }
-    
     public int getAutoSaveInterval() {
         return config.getInt("settings.auto_save_interval", 5);
     }

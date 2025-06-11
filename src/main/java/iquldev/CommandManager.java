@@ -79,7 +79,6 @@ public class CommandManager implements CommandExecutor {
         MessageUtils.sendMessage(player, configManager.getMessage("commands.help.cui"));
         MessageUtils.sendMessage(player, configManager.getMessage("commands.help.reload"));
         
-        // Показываем команду remove только админам
         if (player.hasPermission(configManager.getAdminPermission())) {
             MessageUtils.sendMessage(player, configManager.getMessage("commands.help.remove"));
         }

@@ -7,9 +7,6 @@ settings:
   # Maximum distance between blocks to create a zone
   max_zone_distance: 10
 
-  # Minimum distance between zones of different players (blocks)
-  min_zone_distance: 50
-
   # Automatic data saving every X minutes (0 = disabled)
   auto_save_interval: 5
 
@@ -81,7 +78,6 @@ messages:
     block_place_denied: "{prefix} <red>You cannot place blocks in this zone!</red>"
     block_break_denied: "{prefix} <red>You cannot break blocks in this zone!</red>"
     block_interact_denied: "{prefix} <red>You cannot interact with blocks in this zone!</red>"
-    too_close_to_other_zone: "{prefix} <red>You cannot create a zone too close to another player's zone!</red>"
     zone_owner_actionbar: "<gray>Territory of</gray> <gradient:#2887FC:#0026FF>{owner_name}</gradient>"
 
     # Violation attempt notifications
@@ -95,7 +91,6 @@ messages:
     block_break_no_permission: "Player {player_name} attempted to break block without permission at {location}"
     block_break_protected_zone: "Player {player_name} attempted to break block in protected zone at {location}"
     block_interact_protected_zone: "Player {player_name} attempted to interact with block in protected zone at {location}"
-    zone_too_close: "Player {player_name} attempted to create zone too close to another zone at {location}"
 
   # GUI messages
   gui:
@@ -164,7 +159,6 @@ logging_messages:
     block_break_no_permission: "Player {player_name} attempted to break block without permission at {location}"
     block_break_protected_zone: "Player {player_name} attempted to break block in protected zone at {location}"
     block_interact_protected_zone: "Player {player_name} attempted to interact with block in protected zone at {location}"
-    zone_too_close: "Player {player_name} attempted to create zone too close to another zone at {location}"
 
   # Command events
   commands:

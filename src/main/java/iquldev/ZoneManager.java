@@ -105,27 +105,6 @@ public class ZoneManager {
         return canInteract;
     }
 
-    public boolean canCreateZoneAt(UUID playerId, Location location) {
-        int minDistance = configManager != null ? configManager.getMinZoneDistance() : 50;
-        
-        for (Map.Entry<UUID, List<Zone>> entry : playerZones.entrySet()) {
-            UUID zoneOwner = entry.getKey();
-            if (zoneOwner.equals(playerId)) {
-                continue;
-            }
-            
-            for (Zone zone : entry.getValue()) {
-                for (Location block : zone.getBlocks()) {
-                    if (block.getWorld().equals(location.getWorld()) && 
-                        block.distance(location) < minDistance) {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
-    }
-
     private void updateAllZones() {
         for (UUID playerId : playerBlocks.keySet()) {
             updateZones(playerId);
@@ -145,7 +124,6 @@ public class ZoneManager {
         List<Zone> newZones = new ArrayList<>();
         int maxDistance = configManager != null ? configManager.getMaxZoneDistance() : 10;
 
-        // Создаем одну зону для всех блоков игрока
         newZones.add(new Zone(playerId, new ArrayList<>(blocks), maxDistance));
         
         playerZones.put(playerId, newZones);
