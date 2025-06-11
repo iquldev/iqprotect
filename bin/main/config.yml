@@ -1,0 +1,228 @@
+# ========================================
+# iqProtect Configuration
+# ========================================
+
+# Basic settings
+settings:
+  # Maximum distance between blocks to create a zone
+  max_zone_distance: 10
+
+  # Automatic data saving every X minutes (0 = disabled)
+  auto_save_interval: 5
+
+  # Maximum number of zones per player
+  max_zones_per_player: 10
+
+  # Maximum number of blocks in one zone
+  max_blocks_per_zone: 10000
+
+  # Enable/disable logging
+  enable_logging: true
+
+  # Logging level (INFO, WARNING, ERROR)
+  log_level: "WARNING"
+
+# Permissions
+permissions:
+  use: "iqp.use"
+  bypass: "iqprotect.bypass"
+  reload: "iqprotect.reload"
+  admin: "iqprotect.admin"
+
+# Plugin messages
+messages:
+  # General messages
+  general:
+    prefix: "<white>[<gradient:#2887FC:#0026FF>iqProtect</gradient>]<white>"
+    plugin_enabled: "{prefix} <green>Plugin successfully enabled!</green>"
+    plugin_disabled: "{prefix} <red>Plugin disabled!</red>"
+    plugin_reloading: "{prefix} <gray>Reloading plugin...</gray>"
+    plugin_reloaded: "{prefix} <green>Plugin successfully reloaded!</green>"
+    no_permission: "{prefix} <red>You don't have permission to execute this command!</red>"
+    player_only: "{prefix} <red>This command is only available to players!</red>"
+    unknown_command: "{prefix} <red>Unknown command! Use <gray>/iqp help</gray> for help.</red>"
+
+  # Command messages
+  commands:
+    help:
+      header: "{prefix} <gray>Available commands:</gray>"
+      list: "<gradient:#2887FC:#0026FF>/iqp list</gradient> <gray>-</gray> <white>Show list of your zones</white>"
+      gui: "<gradient:#2887FC:#0026FF>/iqp gui</gradient> <gray>-</gray> <white>Open graphical interface</white>"
+      cui: "<gradient:#2887FC:#0026FF>/iqp cui</gradient> <gray>-</gray> <white>Show zone boundaries with particles</white>"
+      reload: "<gradient:#2887FC:#0026FF>/iqp reload</gradient> <gray>-</gray> <white>Reload plugin</white>"
+      remove: "<gradient:#2887FC:#0026FF>/iqp remove</gradient> <gray>-</gray> <white>Remove zone at your location (Admin only)</white>"
+      help: "<gradient:#2887FC:#0026FF>/iqp help</gradient> <gray>-</gray> <white>Show this help</white>"
+
+    list:
+      header: "{prefix} <gray>Your zones:</gray>"
+      no_zones: "<red>You don't have protected zones yet.</red>"
+      zone_info: "<gray>Zone <gradient:#2887FC:#0026FF>#{zone_number}</gradient> <gray>-</gray> <gradient:#2887FC:#0026FF>{block_count}</gradient> <white>blocks</white> <gray>at</gray> <click:run_command:/tp {teleport_coordinates}><hover:show_text:'<gray>Click to teleport to zone center</gray>'><gradient:#2887FC:#0026FF>{coordinates}</gradient></hover></click>"
+      footer: "<gray>Total zones:</gray> <gradient:#2887FC:#0026FF>{total_zones}</gradient>"
+
+    cui:
+      showing_zones: "{prefix} <green>Showing zone boundaries with particles!</green>"
+      no_zones: "{prefix} <red>You don't have zones to display!</red>"
+
+    reload:
+      success: "{prefix} <green>Plugin successfully reloaded!</green>"
+      no_permission: "{prefix} <red>You don't have permission to reload the plugin!</red>"
+
+    remove:
+      success: "{prefix} <green>Zone successfully removed!</green> <gray>Owner:</gray> <gradient:#2887FC:#0026FF>{owner_name}</gradient> <gray>Blocks:</gray> <gradient:#2887FC:#0026FF>{block_count}</gradient> <gray>Location:</gray> <gradient:#2887FC:#0026FF>{coordinates}</gradient>"
+      no_permission: "{prefix} <red>You don't have permission to remove zones!</red>"
+      no_zone_at_location: "{prefix} <red>No zone found at your current location!</red>"
+      zone_removed_by_admin: "{prefix} <red>Your zone has been removed by administrator</red> <gradient:#2887FC:#0026FF>{admin_name}</gradient> <gray>at</gray> <gradient:#2887FC:#0026FF>{coordinates}</gradient>"
+
+  # Zone protection messages
+  protection:
+    block_place_denied: "{prefix} <red>You cannot place blocks in this zone!</red>"
+    block_break_denied: "{prefix} <red>You cannot break blocks in this zone!</red>"
+    block_interact_denied: "{prefix} <red>You cannot interact with blocks in this zone!</red>"
+    zone_owner_actionbar: "<gray>Territory of</gray> <gradient:#2887FC:#0026FF>{owner_name}</gradient>"
+
+    # Violation attempt notifications
+    violation_notification:
+      block_place: "{prefix} <red>Player</red> <gradient:#2887FC:#0026FF>{player}</gradient> <red>attempted to place a block in your zone!</red>"
+      block_break: "{prefix} <red>Player</red> <gradient:#2887FC:#0026FF>{player}</gradient> <red>attempted to break a block in your zone!</red>"
+      block_interact: "{prefix} <red>Player</red> <gradient:#2887FC:#0026FF>{player}</gradient> <red>attempted to interact with a block in your zone!</red>"
+
+    block_place_no_permission: "Player {player_name} attempted to place block without permission at {location}"
+    block_place_protected_zone: "Player {player_name} attempted to place block in protected zone at {location}"
+    block_break_no_permission: "Player {player_name} attempted to break block without permission at {location}"
+    block_break_protected_zone: "Player {player_name} attempted to break block in protected zone at {location}"
+    block_interact_protected_zone: "Player {player_name} attempted to interact with block in protected zone at {location}"
+
+  # GUI messages
+  gui:
+    title: "iqProtect"
+    zones_item:
+      name: "<gradient:#0024FF:#5567FF>Your zones</gradient>"
+      no_zones: "<gray>You don't have zones</gray>"
+      zone_info: "<gray>Zone <gradient:#0024FF:#5567FF>{zone_number}</gradient>: <gradient:#0024FF:#5567FF>{block_count}</gradient> blocks at <gradient:#0024FF:#5567FF>{coordinates}</gradient></gray>"
+      more_zones: "<gray>...and <gradient:#0024FF:#5567FF>{count}</gradient> more zones</gray>"
+
+    commands_item:
+      name: "<gradient:#0024FF:#5567FF>Plugin commands</gradient>"
+      list_command: "<gray><gradient:#2887FC:#0026FF>/iqp list</gradient> - Zone list</gray>"
+      gui_command: "<gray><gradient:#2887FC:#0026FF>/iqp gui</gradient> - Open GUI</gray>"
+      cui_command: "<gray><gradient:#2887FC:#0026FF>/iqp cui</gradient> - Show zone boundaries</gray>"
+      reload_command: "<gray><gradient:#2887FC:#0026FF>/iqp reload</gradient> - Reload data</gray>"
+
+    permissions_item:
+      name: "<gradient:#2887FC:#0026FF>Permissions</gradient>"
+      bypass_permission: "<gray><gradient:#2887FC:#0026FF>iqprotect.bypass</gradient> - bypass protection</gray>"
+      reload_permission: "<gray><gradient:#2887FC:#0026FF>iqprotect.reload</gradient> - reload</gray>"
+      admin_permission: "<gray><gradient:#2887FC:#0026FF>iqprotect.admin</gradient> - admin capabilities</gray>"
+      has_bypass: "<green>✓ You have bypass permissions</green>"
+      no_bypass: "<red>✗ You don't have bypass permissions</red>"
+      has_admin: "<green>✓ You have admin permissions</green>"
+      no_admin: "<red>✗ You don't have admin permissions</red>"
+
+  # Error messages
+  errors:
+    database_connection: "{prefix} <red>Database connection error:</red> <red>{error}</red>"
+    database_save: "{prefix} <red>Data save error:</red> <red>{error}</red>"
+    database_load: "{prefix} <red>Data load error:</red> <red>{error}</red>"
+    world_not_found: "{prefix} <red>World</red> <gradient:#2887FC:#0026FF>{world}</gradient> <red>not found!</red>"
+    zone_limit_reached: "{prefix} <red>Zone limit reached</red> <gradient:#2887FC:#0026FF>({limit})</gradient><red>!</red>"
+    block_limit_reached: "{prefix} <red>Block limit in zone reached</red> <gradient:#2887FC:#0026FF>({limit})</gradient><red>!</red>"
+    invalid_location: "{prefix} <red>Invalid coordinates!</red>"
+
+  # Success messages
+  success:
+    zone_created: "{prefix} <green>Zone successfully created!</green>"
+    zone_removed: "{prefix} <green>Zone successfully removed!</green>"
+    block_added: "{prefix} <green>Block added to zone!</green>"
+    block_removed: "{prefix} <green>Block removed from zone!</green>"
+    data_saved: "{prefix} <green>Data successfully saved!</green>"
+    data_loaded: "{prefix} <green>Data successfully loaded!</green>"
+
+# Logging messages
+logging_messages:
+  # Main plugin events
+  plugin:
+    enabled: "iqProtect enabled"
+    disabled: "iqProtect disabled"
+    reload: "iqProtect reload"
+    reloaded: "iqProtect reloaded"
+    reload_start: "Starting iqProtect reload..."
+
+  # Zone events
+  zones:
+    block_added: "Block added to player {player_id}. Total blocks: {block_count}"
+    block_removed: "Block removed from player {player_id}. Remaining blocks: {block_count}"
+    block_limit_reached: "Block limit reached for player {player_id} ({max_blocks})"
+    zones_cleared: "Zones cleared for player {player_id}"
+    zones_updated: "Zones updated for player {player_id}: {zone_count} zones from {block_count} blocks"
+    violation_attempt: "Zone violation attempt: player {player_uuid} trying to interact with zone {zone_owner} at {location}"
+
+  # Protection events
+  protection:
+    block_place_no_permission: "Player {player_name} attempted to place block without permission at {location}"
+    block_place_protected_zone: "Player {player_name} attempted to place block in protected zone at {location}"
+    block_break_no_permission: "Player {player_name} attempted to break block without permission at {location}"
+    block_break_protected_zone: "Player {player_name} attempted to break block in protected zone at {location}"
+    block_interact_protected_zone: "Player {player_name} attempted to interact with block in protected zone at {location}"
+
+  # Command events
+  commands:
+    console_execute: "Console attempted to execute iqp command"
+    reload_no_permission: "Reload attempt without permission: {player_name} attempted to reload plugin without permission"
+    reload_start: "Plugin reload: {player_name} reloading iqProtect"
+    reload_success: "Plugin reloaded: {player_name} successfully reloaded iqProtect"
+    remove_no_permission: "Remove zone attempt without permission: {player_name} attempted to remove zone without admin permission"
+    remove_success: "Zone removed by admin: {admin_name} removed zone of {owner_name} ({block_count} blocks) at {coordinates}"
+
+  # Database errors
+  database:
+    sqlite_init_error: "SQLite initialization error: {error}"
+    data_save_error: "Data save error: {error}"
+    data_load_error: "Data load error: {error}"
+    connection_close_error: "Database connection close error: {error}"
+
+  # System errors
+  system:
+    log_file_creation_error: "Failed to create log file"
+    log_write_error: "Error writing to log: {error}"
+
+# Logging settings
+logging:
+  # Enable/disable logging
+  enabled: true
+
+  # Log file
+  file: "log.txt"
+
+  # Maximum log file size (in MB)
+  max_file_size: 10
+
+  # Number of log files to keep
+  max_files: 5
+
+  # Time format in logs
+  time_format: "yyyy-MM-dd HH:mm"
+
+  # Log events
+  events:
+    zone_violations: true # Zone violations
+    commands: true # Command execution
+    reloads: true # Plugin reloads
+    errors: true # Errors
+    debug: false # Debug information
+
+# Performance settings
+performance:
+  # Zone caching (in seconds)
+  zone_cache_time: 300
+
+  # Maximum number of zones in cache
+  max_cached_zones: 1000
+
+  # Automatic cache cleanup every X minutes
+  cache_cleanup_interval: 10
+
+  # Asynchronous data loading
+  async_data_loading: true
+
+  # Asynchronous data saving
+  async_data_saving: true
